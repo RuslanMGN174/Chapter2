@@ -8,7 +8,7 @@ public class Main {
                 {"5", "7", "3", "17"},
                 {"7", "0", "1", "12"},
                 {"8", "1", "2", "у"},
-                {"5", "7", "3", "17"}};
+                {"5", "7", "3"}};
 
         try {
             testException(array);
@@ -18,9 +18,10 @@ public class Main {
     }
 
     static void testException(String[][] array) throws MyArraySizeException, MyArrayDataException {
-        if (array.length != 4 || array[0].length != 4)
-            throw new MyArraySizeException(
-                    "Не корректный размер массива. Необходимо подавать массив размером 4х4");
+        for (String[] strings : array) {
+            if (array.length != 4 || strings.length != 4)
+                throw new MyArraySizeException("Не корректный размер массива. Необходимо подавать массив размером 4х4");
+        }
 
         int sum = 0;
 
