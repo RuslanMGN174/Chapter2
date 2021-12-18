@@ -15,7 +15,6 @@ public class Main {
         } catch (MyArraySizeException | MyArrayDataException e) {
             System.out.println(e.getMessage());
         }
-
     }
 
     static void testException(String[][] array) throws MyArraySizeException, MyArrayDataException {
@@ -24,7 +23,6 @@ public class Main {
                     "Не корректный размер массива. Необходимо подавать массив размером 4х4");
 
         int sum = 0;
-        int value = 0;
 
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array.length; j++) {
