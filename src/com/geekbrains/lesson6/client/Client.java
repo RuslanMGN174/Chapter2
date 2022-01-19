@@ -1,5 +1,7 @@
 package com.geekbrains.lesson6.client;
 
+import com.geekbrains.lesson6.Сommunicatable;
+
 import java.io.*;
 import java.net.Socket;
 import java.util.concurrent.ExecutorService;
@@ -7,7 +9,7 @@ import java.util.concurrent.Executors;
 
 import static java.awt.EventQueue.invokeLater;
 
-public class Client {
+public class Client implements Сommunicatable {
 
     private final String SERVER_ADDR = "localhost";
     private final int SERVER_PORT = 8189;
@@ -35,7 +37,7 @@ public class Client {
             out = new DataOutputStream(socket.getOutputStream());
             executorService = Executors.newSingleThreadExecutor();
 
-            receiveMsg(executorService);
+            receiveMsg(executorService, in, "Server");
             sendMsg(out);
 
         } catch (IOException e) {
@@ -43,30 +45,6 @@ public class Client {
         } finally {
             if (socket != null) socket.close();
             executorService.shutdown();
-        }
-    }
-
-    private void receiveMsg(ExecutorService service) {
-        service.execute(() -> {
-            while (!Thread.currentThread().isInterrupted()){
-                try {
-                    String msgFromClient = in.readUTF();
-                    System.out.println("Client: " + msgFromClient);
-                    if (msgFromClient.equalsIgnoreCase("/end")) System.exit(0);
-                } catch (IOException e) {
-                    System.out.println("Connection was closed!");
-                    break;
-                }
-            }
-        });
-    }
-
-    private void sendMsg(DataOutputStream out) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        while (true) {
-            String msgToServer = reader.readLine();
-            out.writeUTF(msgToServer);
-            if (msgToServer.equalsIgnoreCase("/end")) break;
         }
     }
 
