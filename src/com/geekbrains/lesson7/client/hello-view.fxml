@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox cacheShape="false" centerShape="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="480.0" prefWidth="640.0" scaleShape="false" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lesson4_javafx.HelloController">
+<HBox cacheShape="false" centerShape="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="480.0" prefWidth="640.0" scaleShape="false" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.geekbrains.lesson7.client.HelloController">
    <children>
       <ScrollPane fitToHeight="true" hbarPolicy="NEVER" maxWidth="100.0" minWidth="100.0" prefWidth="100.0">
          <content>
@@ -15,7 +15,7 @@
          <bottom>
             <HBox prefHeight="25.0" BorderPane.alignment="CENTER">
                <TextField fx:id="textField" maxHeight="1.7976931348623157E308" onAction="#sendMessage" HBox.hgrow="ALWAYS" />
-               <Button fx:id="sendButton" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#sendMessage" text="Send" />
+               <Button fx:id="sendButton" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#sendMessage" text="Send" />
             </HBox>
          </bottom>
          <center>

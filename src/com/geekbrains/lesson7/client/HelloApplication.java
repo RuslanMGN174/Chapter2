@@ -1,4 +1,4 @@
-package com.example.lesson4_javafx;
+package com.geekbrains.lesson7.client;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
